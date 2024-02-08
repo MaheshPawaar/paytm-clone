@@ -1,0 +1,13 @@
+const express = require('express');
+const cors = require('cors');
+const mainRouter = import('./routes/index');
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+
+app.use('/api/v1', mainRouter);
+
+app.listen(3000, function () {
+  console.log('Server listening on Port 3000...');
+});

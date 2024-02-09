@@ -1,5 +1,5 @@
-function Signin() {
-  return <>Signin</>;
+export const Signin = () => {
+  return (
+    <div>Dashboard</div>
+  )
 }
-
-export default Signin;

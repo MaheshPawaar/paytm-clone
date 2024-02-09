@@ -1,5 +1,7 @@
-function SendMoney() {
-  return ( <>Send Money</> );
-}
 
-export default SendMoney;
+
+export const SendMoney = () => {
+  return (
+    <div>SendMoney</div>
+  )
+}

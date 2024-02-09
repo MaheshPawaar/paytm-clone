@@ -29,7 +29,7 @@ router.post('/signup', async (req, res) => {
     username: body.username,
   });
 
-  if (existingUser._id) {
+  if (existingUser) {
     return res.status(411).json({
       message: 'Email already taken / Incorrect inputs',
     });
@@ -118,7 +118,7 @@ router.put('/', authMiddleware, async (req, res) => {
     });
   }
 
-  await User.findOne(req.body, {
+  await User.updateOne(req.body, {
     _id: req.userId,
   });
 
@@ -130,7 +130,7 @@ router.put('/', authMiddleware, async (req, res) => {
 router.get('/bulk', async (req, res) => {
   const filter = req.query.filter || '';
 
-  const user = await User.find({
+  const users = await User.find({
     $or: [
       {
         firstName: {

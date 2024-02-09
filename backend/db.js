@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
-const { Schema } = require('zod');
 require('dotenv').config();
 
 // Connect with Mongo instance
 try {
-  mongoose.connect(process.env.DB_URL);
+  mongoose.connect(`${process.env.MONGO_URI}/paytm`);
   console.log('Connected to MongoDB');
 } catch (error) {
   console.error(error.message);
